@@ -8,3 +8,4 @@ langchain_google_genai  # with the help of Langchain, you can access API
 pdf2image
 poppler-utils
 streamlit_lottie
+spacy
