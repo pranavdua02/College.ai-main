@@ -3,9 +3,9 @@ from streamlit_lottie import st_lottie
 import json
 
 def home():
-    st.set_page_config("College.ai", page_icon='🏠', layout='centered')
-    st.header("Welcome to College.ai! 🏡")
-    st.write("Explore the ChatGPT4 Features for free")
+    st.set_page_config("College.ai", page_icon='src\Logo.gif', layout='centered')
+    st.header(" Welcome to College.ai!")
+    st.write("AI powered System for Students")
 
     try:
         with open('src/Home_student.json', encoding='utf-8') as anim_source:

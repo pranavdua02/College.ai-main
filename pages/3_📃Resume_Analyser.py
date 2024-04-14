@@ -79,9 +79,9 @@ def user_input(user_question):
 
 def main():
     
-    with open('src/Robot.json', encoding='utf-8') as anim_source:
+    with open('src/Resume.json', encoding='utf-8') as anim_source:
         animation = json.load(anim_source)
-    st_lottie(animation, 1, True, True, "high", 100, -200)
+    st_lottie(animation, 1, True, True, "high", 200, -200)
 
 
     

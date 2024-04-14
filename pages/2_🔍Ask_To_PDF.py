@@ -110,7 +110,7 @@ def main():
         animation = json.load(anim_source)
     st_lottie(animation, 1, True, True, "high", 100, -200)
 
-    st.text("______________If <AI is trained>, then only write your queries._______________")
+    #st.text("______________If <AI is trained>, then only write your queries._______________")
     user_question = st.text_input("Ask a Question from the PDF Files")
     enter_button = st.button('Enter')
 
