@@ -10,6 +10,3 @@ poppler-utils
 streamlit_lottie
 spacy
 
-sqlite3
-random
-string
