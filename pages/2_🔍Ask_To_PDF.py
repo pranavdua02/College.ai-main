@@ -81,7 +81,7 @@ def user_input(user_question):
     st.write("Reply: ", st.session_state.output_text)
 
 def main():
-    st.set_page_config("College.ai", page_icon='src/PDFGen', layout='centered')
+    st.set_page_config("College.ai", page_icon='src/PDFGen.png', layout='centered')
     st.header("Ask_to_PDF- Start chat")
 
     if 'pdf_docs' not in st.session_state:
