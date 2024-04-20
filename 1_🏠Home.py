@@ -3,7 +3,7 @@ from streamlit_lottie import st_lottie
 import json
 
 def home():
-    st.set_page_config("College.ai", page_icon='src\Logo.gif', layout='centered')
+    st.set_page_config("College.ai", page_icon='src/Logo College.png', layout='centered')
     st.header(" Welcome to College.ai!")
     st.write("AI powered System for Students")
 
