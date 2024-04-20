@@ -81,7 +81,7 @@ def user_input(user_question):
     st.write("Reply: ", st.session_state.output_text)
 
 def main():
-    st.set_page_config("College.ai", page_icon='🔍', layout='centered')
+    st.set_page_config("College.ai", page_icon='src/PDFGen', layout='centered')
     st.header("Ask_to_PDF- Start chat")
 
     if 'pdf_docs' not in st.session_state:
@@ -100,7 +100,7 @@ def main():
 
     if st.button("Train & Process"):
         if pdf_docs:
-            with st.spinner("🤖Processing..."):
+            with st.spinner("Processing..."):
                 raw_text = get_pdf_text(pdf_docs)
                 text_chunks = get_text_chunks(raw_text)
                 get_vector_store(text_chunks)
