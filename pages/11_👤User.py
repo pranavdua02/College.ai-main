@@ -25,6 +25,7 @@ def send_otp(email, otp):
 
 
 def main():
+    st.set_page_config("College.ai", page_icon='src/AboutGen.png', layout='centered')
     if "logged_in" not in st.session_state:
         form_type = st.radio("Select Action", ("Login", "Sign Up", "Forgot Password"))
 
