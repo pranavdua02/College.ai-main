@@ -18,7 +18,7 @@ def home():
     except Exception as e:
         st.error(f"An error occurred: {e}")
 
-    st.write("Project by: Suraj Sanap")
+    
 
 if __name__ == "__main__":
     home()
