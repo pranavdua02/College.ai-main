@@ -18,6 +18,7 @@ def home():
     except Exception as e:
         st.error(f"An error occurred: {e}")
 
+st.link_button('Tutorial', "https://devpost.com/software/college-ai-m3o0bx")
     
 
 if __name__ == "__main__":
