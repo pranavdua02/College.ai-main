@@ -7,6 +7,8 @@ from PIL import Image
 import os 
 import io 
 import json
+from streamlit_lottie import st_lottie 
+
 
 load_dotenv()
 
