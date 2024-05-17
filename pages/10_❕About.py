@@ -49,7 +49,7 @@ def Ask_To_PDF():
         animation = json.load(anim_source)
         st_lottie(animation, 1, True, True, "high", 100, -200)
 
-    st.write("This service provides you the functionality to train the AI_Generative model \n on your PDF and then apply your query on it.")
+    st.write("This service provides you the functionality to train the AI_Generative model.\n on your PDF and then apply your query on it.")
 
 def ATS():
     st.markdown("2. ATS")
@@ -66,7 +66,7 @@ def ResumeAnalyzer():
     
     st.write("Check your resume's goodness \n Get recommendations for skills, fields, courses, etc.")
 
-
+Lens()
 Ask_To_PDF()
 ATS()
 ResumeAnalyzer()
