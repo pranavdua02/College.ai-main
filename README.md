@@ -43,13 +43,13 @@ pip install -r requirements.txt
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/SurajSanap/College.ai_v0.1.git
+git clone <link>
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd College.ai_v0.1
+cd <filename>
 ```
 
 ## Getting Started
@@ -57,7 +57,7 @@ cd College.ai_v0.1
 To start the application, run the following command:
 
 ```bash
-streamlit run home.py
+streamlit run <app.py>
 ```
 
 This will launch the College.ai application in your default web browser.
