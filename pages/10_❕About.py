@@ -35,6 +35,14 @@ st.write("\n")
 st.write("\n")
 
 st.header("Page info:")
+
+def Lens():
+    st.markdown("2. AI Lens")
+    with open('src/AI Lens.json') as anim_source:
+        animation = json.load(anim_source)
+        st_lottie(animation, 1, True, True, "high", 100, -200)
+    st.write("This will allow us to read images by AI and Give us responce on it,\n AI Vision Functionality \n ChatBot is usefull for Text Query input processing.")
+
 def Ask_To_PDF():
     st.markdown("1. Ask_To_PDF")
     with open('src/pdf.json') as anim_source:
