@@ -9,6 +9,7 @@ pdf2image
 poppler-utils
 streamlit_lottie
 spacy
+langchain-community
 
 streamlit-webrtc
 aiortc
