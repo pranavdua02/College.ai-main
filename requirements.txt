@@ -10,3 +10,8 @@ poppler-utils
 streamlit_lottie
 spacy
 
+streamlit-webrtc
+aiortc
+flask
+flask-socketio
+streamlit_chat
