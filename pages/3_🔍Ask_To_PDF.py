@@ -11,7 +11,10 @@ from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 from streamlit_lottie import st_lottie 
 import json
+import faiss
 import pickle
+import asyncio
+
 load_dotenv()
 
 os.getenv("GOOGLE_API_KEY")
@@ -33,10 +36,19 @@ def get_text_chunks(text):
 def get_vector_store(text_chunks):
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
-    with open("faiss_index.pkl", "wb") as f:
-        pickle.dump(vector_store, f)
+    faiss.write_index(vector_store.index, "faiss_index.bin")
+    with open("faiss_store.pkl", "wb") as f:
+        pickle.dump({"docstore": vector_store.docstore, "index_to_docstore_id": vector_store.index_to_docstore_id}, f)
 
-def get_conversational_chain():
+def load_vector_store():
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    index = faiss.read_index("faiss_index.bin")
+    with open("faiss_store.pkl", "rb") as f:
+        store_data = pickle.load(f)
+    vector_store = FAISS(embedding_function=embeddings.embed_query, index=index, docstore=store_data["docstore"], index_to_docstore_id=store_data["index_to_docstore_id"])
+    return vector_store
+
+async def get_conversational_chain():
     prompt_template = """
     Leave First 1 line empty and then give reply
     1. Answer the question as detailed as possible from the provided context 
@@ -63,14 +75,10 @@ def get_conversational_chain():
     return chain
 
 def user_input(user_question):
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    vector_store = load_vector_store()
+    docs = vector_store.similarity_search(user_question)
 
-    with open("faiss_index.pkl", "rb") as f:
-        new_db = pickle.load(f)
-    
-    docs = new_db.similarity_search(user_question)
-
-    chain = get_conversational_chain()
+    chain = asyncio.run(get_conversational_chain())
 
     response = chain(
         {"input_documents": docs, "question": user_question},
@@ -81,7 +89,7 @@ def user_input(user_question):
     st.write("Reply: ", st.session_state.output_text)
 
 def main():
-    st.set_page_config("College.ai", page_icon='src/PDFGen.png', layout='centered')
+    st.set_page_config("College.ai", page_icon='🔍', layout='centered')
     st.header("Ask_to_PDF- Start chat")
 
     if 'pdf_docs' not in st.session_state:
@@ -100,7 +108,7 @@ def main():
 
     if st.button("Train & Process"):
         if pdf_docs:
-            with st.spinner("Processing..."):
+            with st.spinner("🤖Processing..."):
                 raw_text = get_pdf_text(pdf_docs)
                 text_chunks = get_text_chunks(raw_text)
                 get_vector_store(text_chunks)
@@ -110,7 +118,6 @@ def main():
         animation = json.load(anim_source)
     st_lottie(animation, 1, True, True, "high", 100, -200)
 
-    #st.text("______________If <AI is trained>, then only write your queries._______________")
     user_question = st.text_input("Ask a Question from the PDF Files")
     enter_button = st.button('Enter')
 
@@ -127,8 +134,6 @@ def main():
 
     if pdf_docs:
         st.session_state.pdf_docs = pdf_docs
-
-    
 
 if __name__ == "__main__":
     main()
