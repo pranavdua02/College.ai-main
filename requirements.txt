@@ -11,11 +11,11 @@ streamlit_lottie
 spacy
 langchain-community
 
-<<<<<<< HEAD
+
 streamlit-webrtc
 aiortc
 flask
 flask-socketio
 streamlit_chat
 =======
->>>>>>> parent of 2d51f95 (Merge pull request #2 from SurajSanap/v2.0)
+
