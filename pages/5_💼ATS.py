@@ -52,4 +52,3 @@ if submit:
             st.text(keyword)
         st.subheader("Profile Summary")
         st.markdown(response_data['ProfileSummary'])
-
