@@ -1,6 +1,7 @@
 This project is participating in GSSoC 2024.
 
-![gssoc-logo-1](https://github.com/foss42/awesome-generative-ai-apis/assets/1382619/670b651a-15d7-4869-a4d1-6613df09fa37)
+![image](https://github.com/SurajSanap/College.ai-main/assets/101057653/00862e07-6476-4e78-9c7e-e328fdcd97d0)
+
 
 Contributors should go through the [Contributing Guide](https://github.com/foss42/api/blob/main/CONTRIBUTING.md) to learn how to setup development environment, raise an issue and send across a PR.
 
