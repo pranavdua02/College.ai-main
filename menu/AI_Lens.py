@@ -21,15 +21,15 @@ def image_to_byte_array(image: Image) -> bytes:
 API_KEY = os.environ.get("GOOGLE_API_KEY")
 genai.configure(api_key=API_KEY)
 
-with open('src/AI Lens.json', encoding='utf-8') as anim_source:
-        animation = json.load(anim_source)
-        st_lottie(animation, 1, True, True, "high", 200, -200)
-
-st.write("")
-
-gemini_pro, gemini_vision = st.tabs(["ChatBot", "Ai Lens"])
-
 def main():
+    with open('src/AI Lens.json', encoding='utf-8') as anim_source:
+            animation = json.load(anim_source)
+            st_lottie(animation, 1, True, True, "high", 200, -200)
+
+    st.write("")
+
+    gemini_pro, gemini_vision = st.tabs(["ChatBot", "Ai Lens"])
+
     with gemini_pro:
         st.header("Interact with ChatBot")
         st.write("")

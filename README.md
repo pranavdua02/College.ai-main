@@ -1,10 +1,3 @@
-This project is participating in GSSoC 2024.
-
-![image](https://github.com/SurajSanap/College.ai-main/assets/101057653/00862e07-6476-4e78-9c7e-e328fdcd97d0)
-
-
-Contributors should go through the [Contributing Guide](https://github.com/foss42/api/blob/main/CONTRIBUTING.md) to learn how to setup development environment, raise an issue and send across a PR.
-
 # College.ai
 
 College.ai is a versatile project that harnesses the power of ChatGPT-4 to provide a range of features. The application includes functionalities such as exploring ChatGPT-4 features, training/uploading PDFs, resume analysis, and more.
@@ -24,15 +17,7 @@ Tutorial video: https://www.youtube.com/watch?v=K2QHmboTf8o
 
 ## Introduction
 
-Welcome to College.ai, your comprehensive solution for exploring the capabilities of ChatGPT-4! This project offers a variety of features, including:
-
-- **Home Page**: Provides an introduction to College.ai and its features.
-- **About Section**: Contains information about the creator and project details.
-- **Ask_To_PDF**: Functionality for training/uploading PDFs and making queries.
-- **Resume_Analyser**: Analyzes resumes and provides recommendations.
-- **ATS (Applicant Tracking System)**: Matches job descriptions with resumes and provides feedback.
-- **AI Lens**: Allows users to interact with AI for image analysis and chatbot functionality.
-- **Prompt Examples**: Examples for prompting in Ask to PDF.
+Welcome to College.ai, your comprehensive solution for exploring the capabilities of ChatGPT-4! This project offers a variety of features, including a Home page, an About section, Ask_To_PDF functionality for training/uploading PDFs, Resume_Analyser for analyzing resumes, ATS for matching job descriptions and resumes, and examples for prompting in Ask to PDF.
 
 ## Dependencies
 
