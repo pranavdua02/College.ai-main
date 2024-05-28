@@ -17,7 +17,15 @@ Tutorial video: https://www.youtube.com/watch?v=K2QHmboTf8o
 
 ## Introduction
 
-Welcome to College.ai, your comprehensive solution for exploring the capabilities of ChatGPT-4! This project offers a variety of features, including a Home page, an About section, Ask_To_PDF functionality for training/uploading PDFs, Resume_Analyser for analyzing resumes, ATS for matching job descriptions and resumes, and examples for prompting in Ask to PDF.
+Welcome to College.ai, your comprehensive solution for exploring the capabilities of ChatGPT-4! This project offers a variety of features, including:
+
+- **Home Page**: Provides an introduction to College.ai and its features.
+- **About Section**: Contains information about the creator and project details.
+- **Ask_To_PDF**: Functionality for training/uploading PDFs and making queries.
+- **Resume_Analyser**: Analyzes resumes and provides recommendations.
+- **ATS (Applicant Tracking System)**: Matches job descriptions with resumes and provides feedback.
+- **AI Lens**: Allows users to interact with AI for image analysis and chatbot functionality.
+- **Prompt Examples**: Examples for prompting in Ask to PDF.
 
 ## Dependencies
 
