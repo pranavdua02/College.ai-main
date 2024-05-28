@@ -1,3 +1,9 @@
+This project is participating in GSSoC 2024.
+
+![gssoc-logo-1](https://github.com/foss42/awesome-generative-ai-apis/assets/1382619/670b651a-15d7-4869-a4d1-6613df09fa37)
+
+Contributors should go through the [Contributing Guide](https://github.com/foss42/api/blob/main/CONTRIBUTING.md) to learn how to setup development environment, raise an issue and send across a PR.
+
 # College.ai
 
 College.ai is a versatile project that harnesses the power of ChatGPT-4 to provide a range of features. The application includes functionalities such as exploring ChatGPT-4 features, training/uploading PDFs, resume analysis, and more.
