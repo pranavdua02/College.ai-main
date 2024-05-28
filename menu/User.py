@@ -17,7 +17,6 @@ def generate_otp():
     otp = ''.join(random.choices(string.digits, k=6))
     return otp
 
-
 # Function to send OTP (dummy implementation)
 def send_otp(email, otp):
     # Dummy implementation, replace with actual email sending logic
@@ -25,7 +24,6 @@ def send_otp(email, otp):
 
 
 def main():
- 
     if "logged_in" not in st.session_state:
         form_type = st.radio("Select Action", ("Login", "Sign Up", "Forgot Password"))
 
