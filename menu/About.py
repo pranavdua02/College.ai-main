@@ -1,40 +1,9 @@
+import json
 import streamlit as st
 from streamlit_lottie import st_lottie 
-import json
-
-a = "About: "
-st.title(a)
-with open('src/About.json') as anim_source:
-    animation = json.load(anim_source)
-st_lottie(animation, 1, True, True, "high", 200, -200)
-
-st.text("-                     ©️Suraj Sanap Project 2024                  -")
-st.write("\n")
-
-col1, col2, col3 = st.columns([1,1,1])
-
 
 def show_thank_you_emoji():
     st.text("💖")
-   
-
-
-with col1:
-    st.link_button('GitHub', "https://github.com/SurajSanap")
-with col2:
-    st.link_button('LinkedIn', "https://www.linkedin.com/in/surajsanap01")
-with col3:
-    if st.button('Thankyou'):
-        try:
-            show_thank_you_emoji()
-        except:
-            print("💝")
-
-st.text("_______________________________________________________________________________")
-st.write("\n")
-st.write("\n")
-
-st.header("Page info:")
 
 def Lens():
     st.markdown("1. AI Lens")
@@ -66,10 +35,43 @@ def ResumeAnalyzer():
     
     st.write("Check your resume's goodness \n Get recommendations for skills, fields, courses, etc.")
 
-Lens()
-Ask_To_PDF()
-ATS()
-ResumeAnalyzer()
 
+def main():
+    a = "About: "
 
+    st.title(a)
+    with open('src/About.json') as anim_source:
+        animation = json.load(anim_source)
+    st_lottie(animation, 1, True, True, "high", 200, -200)
 
+    st.text("-                     ©️Suraj Sanap Project 2024                  -")
+    st.write("\n")
+
+    col1, col2, col3 = st.columns([1,1,1])
+    
+    with col1:
+        st.link_button('GitHub', "https://github.com/SurajSanap")
+    with col2:
+        st.link_button('LinkedIn', "https://www.linkedin.com/in/surajsanap01")
+    with col3:
+        if st.button('Thankyou'):
+            try:
+                show_thank_you_emoji()
+            except:
+                print("💝")
+
+    st.text("_______________________________________________________________________________")
+    st.write("\n")
+    st.write("\n")
+
+    st.header("Page info:")
+    
+    
+    Lens()
+    Ask_To_PDF()
+    ATS()
+    ResumeAnalyzer()
+    
+    
+if __name__=="__main__":
+    main()
