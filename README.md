@@ -2,7 +2,8 @@
 
 College.ai is a versatile project that harnesses the power of ChatGPT-4 to provide a range of features. The application includes functionalities such as exploring ChatGPT-4 features, training/uploading PDFs, resume analysis, and more.
 
-![Screenshot 2024-04-25 203458](https://github.com/SurajSanap/College.ai-main/assets/101057653/46df4de6-4ee7-481c-b027-359a1597186c)
+![image](https://github.com/SurajSanap/College.ai-main/assets/101057653/91979a2b-f1e8-4f63-8d5d-09399cab2780)
+
 
 Tutorial video: https://www.youtube.com/watch?v=K2QHmboTf8o
 
