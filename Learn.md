@@ -4,16 +4,16 @@ Welcome to College.ai! This document will guide you through understanding, setti
 
 ## Table of Contents 📅
 1. [Introduction](#introduction)
-2. [Dependencies](#dependencies)
-3. [Installation](#installation)
+2. [Dependencies](#dependencies-)
+3. [Installation](#installation-️)
 4. [Launching](#launching)
-5. [Using College.ai](#using-collegeai)
-6. [Contributing](#contributing)
-7. [Resources for Beginners](#Resources-for-Beginners)
+5. [Using College.ai](#-using-collegeai-)
+6. [Contributing](#contributing-)
+7. [Resources for Beginners](#resources-for-beginners-)
 8. [Documentation](#documentation)
 9. [Code Reviews](#code-reviews)
-10. [Feature Requests](#feature-requests)
-11. [Spreading the Word](#spreading-the-word)
+10. [Feature Requests](#feature-requests-)
+11. [Spreading the Word](#spreading-the-word-)
 
 ## Introduction🎬
 College.ai is a versatile project that leverages the power of ChatGPT-4 to offer a variety of features, including exploring ChatGPT-4 functionalities, uploading and querying PDFs, analyzing resumes, and matching job descriptions with resumes. This guide will help you navigate through the setup process, understand the project's structure, and contribute effectively.
@@ -44,7 +44,7 @@ pip install -r requirements.txt
    ```bash
    cd <filename>
    ```
-## Launching 🖥️
+## Launching
 To start the College.ai application, run the following command:
 ```bash
 streamlit run <app.py>
@@ -70,7 +70,7 @@ Match job descriptions with resumes to see how well they align and get feedback 
 ### Prompt Examples
 Explore various examples to help you understand how to effectively use the Ask_To_PDF functionality.
 
-## Contributing📝
+## Contributing 📝
 Raise and issue; Get assigned and then work on fixing the issue.
 We welcome contributions to College.ai! Follow these steps to contribute:
 
@@ -118,7 +118,7 @@ git commit -m "Describe your changes"
 4. Add screenshot it help in review.
 5. Submit your PR by giving the necesarry information in PR template and hang tight we will review it really soon.
 
-## 📚 Resources for Beginners 
+## Resources for Beginners 📚
 ### Basics of Git and GitHub 📂
 - [Forking a Repo](https://help.github.com/en/articles/fork-a-repo)
 - [Cloning a Repo](https://help.github.com/en/articles/cloning-a-repository)
