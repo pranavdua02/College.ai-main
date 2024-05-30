@@ -28,7 +28,7 @@ def main():
     st.write("<h1><center> Authentication Portal</center></h1>", unsafe_allow_html=True)
     if "logged_in" not in st.session_state:
         form_type = st.radio("Select Action", ("Login", "Sign Up", "Forgot Password"))
-
+     
         if form_type == "Login":
             form = st.form(key="login_form")
             form.subheader("Login")

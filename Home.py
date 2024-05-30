@@ -48,7 +48,7 @@ def main():
         'ATS': ats_page,
         'Prompt Examples': prompt_examples_page,
         'About': about_page,
-        'Person': user_page
+        'Person': user_page,
     }
     
     menu[tabs]()
