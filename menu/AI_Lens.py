@@ -22,17 +22,19 @@ API_KEY = os.environ.get("GOOGLE_API_KEY")
 genai.configure(api_key=API_KEY)
 
 def main():
-    with open('src/AI Lens.json', encoding='utf-8') as anim_source:
-            animation = json.load(anim_source)
-            st_lottie(animation, 1, True, True, "high", 200, -200)
-
+  
+    
+    st.write("<h1><center>Virtual Assistant Interface</center></h1>", unsafe_allow_html=True)
     st.write("")
 
     gemini_pro, gemini_vision = st.tabs(["ChatBot", "Ai Lens"])
 
     with gemini_pro:
-        st.header("Interact with ChatBot")
+        st.header("ChatBot Tab")
         st.write("")
+        with open('src/AI Lens.json', encoding='utf-8') as anim_source:
+            animation = json.load(anim_source)
+            st_lottie(animation, 1, True, True, "high", 200, -200)
 
         prompt = st.text_input("prompt please...", placeholder="Prompt", label_visibility="visible")
         model = genai.GenerativeModel("gemini-pro")
@@ -47,8 +49,11 @@ def main():
             st.markdown(response.text)
 
     with gemini_vision:
-        st.header("Interact with Ai Lens")
+        st.header("Ai Lens Tab")
         st.write("")
+        with open('src/AI Lens.json', encoding='utf-8') as anim_source:
+            animation = json.load(anim_source)
+            st_lottie(animation, 1, True, True, "high", 200, -200)
 
         image_prompt = st.text_input("Interact with the Image", placeholder="Prompt", label_visibility="visible")
         uploaded_file = st.file_uploader("Choose and Image", accept_multiple_files=False, type=["png", "jpg", "jpeg", "img", "webp"])

@@ -24,6 +24,8 @@ def send_otp(email, otp):
 
 
 def main():
+   
+    st.write("<h1><center> Authentication Portal</center></h1>", unsafe_allow_html=True)
     if "logged_in" not in st.session_state:
         form_type = st.radio("Select Action", ("Login", "Sign Up", "Forgot Password"))
 
