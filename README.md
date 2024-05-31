@@ -1,6 +1,6 @@
-# College.ai
+# 🎓🤖College.ai
 
-College.ai is a versatile project that harnesses the power of ChatGPT-4 to provide a range of features. The application includes functionalities such as exploring ChatGPT-4 features, training/uploading PDFs, resume analysis, and more.
+Welcome to College.ai !! It  is a versatile project that harnesses the power of ChatGPT-4 to provide a range of features. The application includes functionalities such as exploring ChatGPT-4 features, training/uploading PDFs, resume analysis, and more.🎓🤖
 
 ![image](https://github.com/SurajSanap/College.ai-main/assets/101057653/91979a2b-f1e8-4f63-8d5d-09399cab2780)
 
@@ -16,9 +16,9 @@ Tutorial video: https://www.youtube.com/watch?v=K2QHmboTf8o
 - [Contributing](#contributing)
 - [License](#license)
 
-## Introduction
+## 🚀Introduction
 
-Welcome to College.ai, your comprehensive solution for exploring the capabilities of ChatGPT-4! This project offers a variety of features, including a Home page, an About section, Ask_To_PDF functionality for training/uploading PDFs, Resume_Analyser for analyzing resumes, ATS for matching job descriptions and resumes, and examples for prompting in Ask to PDF.
+ College.ai , your comprehensive solution for exploring the capabilities of ChatGPT-4! This project offers a variety of features, including a Home page, an About section, Ask_To_PDF functionality for training/uploading PDFs, Resume_Analyser for analyzing resumes, ATS for matching job descriptions and resumes, and examples for prompting in Ask to PDF.
 
 ## Dependencies
 
@@ -35,13 +35,13 @@ Make sure you have the following dependencies installed:
 - [poppler-utils](https://poppler.freedesktop.org/)
 - [streamlit_lottie](https://github.com/okld/streamlit-lottie)
 
-You can install them using the following:
+Can install them using the following:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Installation
+## 🛠️Installation
 
 1. Clone the repository:
 
@@ -75,7 +75,7 @@ This will launch the College.ai application in your default web browser.
   - `ATS.py`: Match job descriptions with resumes and show feedback.
   - `Prompt_Examples.py`: Examples for prompting in Ask to PDF.
 
-## Contributing
+## 🤝Contributing
 
 If you'd like to contribute to College.ai, please follow these steps:
 
@@ -85,6 +85,26 @@ If you'd like to contribute to College.ai, please follow these steps:
 4. Push your changes to your fork.
 5. Create a pull request.
 
-## License
+Note: Make sure you always create a updated PR.
+
+
+#### Contibuting Guidelines 
+  We believe in the power of collaboration. If you have ideas to improve College.ai, feel free to contribute! Check out our [Contribution Guidelines]https://github.com/SurajSanap/College.ai-main/blob/main/CONTRIBUTION.md to get started.
+
+### 📄 Documentation
+
+Explore our comprehensive documentation in the [LEARN.md]https://github.com/SurajSanap/College.ai-main/blob/main/Learn.md file, which serves as a detailed guide to understanding and contributing to UniCollab. This document covers various aspects of the project, including setup instructions, architecture overview, and contribution guidelines. We recommend referring to this documentation to gain a deeper insight into UniCollab and make meaningful contributions to its development.
+
+## 📝License
 
 This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute the code as per the terms of the license.
+
+### 🌟 Join Us 
+
+Ready to embark on a journey of collaborative learning? Join College.ai now and be a part of a community that believes in the power of collaboration!
+Thank you for contributing to our open-source project! We appreciate your support 🚀
+Don't forget to leave a star ⭐
+Happy Coding!!❤️
+
+
+<p align="right">{<a href="#top">Back to top</a>}</p>
