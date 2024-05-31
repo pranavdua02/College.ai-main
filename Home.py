@@ -1,4 +1,8 @@
 import streamlit as st
+
+st.set_page_config("College.ai", page_icon='src/Logo College.png', layout='centered')
+st.markdown('<style>' + open('./src/style.css').read() + '</style>', unsafe_allow_html=True)
+
 from streamlit_lottie import st_lottie 
 from st_on_hover_tabs import on_hover_tabs
 import json
@@ -11,8 +15,6 @@ from menu.Prompt_Examples import main as prompt_examples_page
 from menu.Resume_Analyser import main as resume_analyser_page
 from menu.User import main as user_page
 
-st.set_page_config("College.ai", page_icon='src/Logo College.png', layout='centered')
-st.markdown('<style>' + open('./src/style.css').read() + '</style>', unsafe_allow_html=True)
 
 def home():
     st.header(" Welcome to College.ai!")

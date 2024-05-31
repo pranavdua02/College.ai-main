@@ -37,9 +37,9 @@ def ResumeAnalyzer():
 
 
 def main():
-    a = "About: "
+    a = "<h1><center>About</center></h1>"
 
-    st.title(a)
+    st.write(a, unsafe_allow_html=True)
     with open('src/About.json') as anim_source:
         animation = json.load(anim_source)
     st_lottie(animation, 1, True, True, "high", 200, -200)
