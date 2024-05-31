@@ -36,11 +36,13 @@ def home():
 
 def main():
     with st.sidebar:
-        tabs = on_hover_tabs(tabName=['Home', 'AI Lens', 'Ask To PDF', 'Resume Analyser', 'ATS', 'Prompt Examples', 'About', 'Person'], 
+        
+        tabs = on_hover_tabs(tabName=['Home', 'AI Lens', 'Ask To PDF', 'Resume Analyser', 'ATS', 'Prompt Examples', 'About', 'Account'], 
                             iconName=['home', 'center_focus_weak', 'search', 'article', 'work', 'edit', 'info', 'account_circle'], 
                             default_choice=0)
 
     menu = {
+        
         'Home': home,
         'AI Lens': ai_lens_page,
         'Ask To PDF': ask_to_pdf_page,
@@ -48,7 +50,7 @@ def main():
         'ATS': ats_page,
         'Prompt Examples': prompt_examples_page,
         'About': about_page,
-        'Person': user_page
+        'Account': user_page,
     }
     
     menu[tabs]()
