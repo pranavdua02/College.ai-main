@@ -2,30 +2,25 @@ import streamlit as st
 import sqlite3
 import random
 import string
+import asyncio
 from httpx_oauth.clients.google import GoogleOAuth2
-# Database initialization
+from firebase_admin import auth, exceptions
+
+# Initialize Streamlit title
+st.title("College.ai")
+
+# Initialize SQLite database
 conn = sqlite3.connect('user_data.db')
 c = conn.cursor()
 c.execute('''CREATE TABLE IF NOT EXISTS users
              (id INTEGER PRIMARY KEY, username TEXT, password TEXT, email TEXT)''')
 conn.commit()
 
-st.title("College.ai")
-
-
-import firebase_admin
-from firebase_admin import auth, exceptions, credentials, initialize_app
-import asyncio
-from httpx_oauth.clients.google import GoogleOAuth2
-
-
-
-client_id = "client_id"
-client_secret = "client_secent"
-redirect_url = "xxx"  # Your redirect URL
-
+# Initialize Google OAuth2 client
+client_id = "YOUR_CLIENT_ID"
+client_secret = "YOUR_CLIENT_SECRET"
+redirect_url = "YOUR_REDIRECT_URL"
 client = GoogleOAuth2(client_id=client_id, client_secret=client_secret)
-
 
 async def get_access_token(client: GoogleOAuth2, redirect_url: str, code: str):
     return await client.get_access_token(code, redirect_url)
@@ -56,7 +51,6 @@ def get_logged_in_user_email():
         pass
 
 def show_login_button():
-    # Define the HTML for the button
     authorization_url = asyncio.run(client.get_authorization_url(
         redirect_url,
         scope=["email", "profile"],
@@ -65,28 +59,20 @@ def show_login_button():
     button_html = f'<a href="{authorization_url}" target="_self" style="text-decoration: none;"><button style="background-color: #2F80ED; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">Login via Google</button></a>'
     st.markdown(button_html, unsafe_allow_html=True)
 
-# Function to generate OTP
-
 def generate_otp():
     otp = ''.join(random.choices(string.digits, k=6))
     return otp
 
-# Function to send OTP (dummy implementation)
 def send_otp(email, otp):
-    # Dummy implementation, replace with actual email sending logic
     st.write(f"An OTP has been sent to {email}. Your OTP is: {otp}")
 
-
 def main():
-   
     st.write("<h1><center> Authentication Portal</center></h1>", unsafe_allow_html=True)
     
-    
     if "logged_in" not in st.session_state:
-        form_type = st.selectbox('login/Signup',['Login','Sign Up','Forgot Password'])
+        form_type = st.selectbox('Login/Signup/Forgot Password', ['Login', 'Sign Up', 'Forgot Password'])
         
         if form_type == "Login":
-           
             form = st.form(key="login_form")
             form.subheader("Login")
 
@@ -94,8 +80,6 @@ def main():
             password = form.text_input("Password", type="password")
 
             if form.form_submit_button("Login"):
-               
-                # Check if username and password are correct
                 c.execute("SELECT * FROM users WHERE username=? AND password=?", (user, password))
                 result = c.fetchone()
                 if result:
@@ -117,9 +101,7 @@ def main():
             email = form.text_input("Email")
 
             if form.form_submit_button("Sign Up"):
-                # Add user to database
-                c.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)",
-                          (new_user, new_password, email))
+                c.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", (new_user, new_password, email))
                 conn.commit()
                 st.success("Account created successfully! Please login.")
                 #st.balloons()
@@ -133,7 +115,6 @@ def main():
             email = form.text_input("Enter Email")
 
             if form.form_submit_button("Send OTP"):
-                # Check if email exists in database
                 c.execute("SELECT * FROM users WHERE email=?", (email,))
                 result = c.fetchone()
                 if result:
@@ -151,7 +132,6 @@ def main():
             del st.session_state["logged_in"]
             del st.session_state["user"]
             st.success("Logged out successfully!")
-
 
 if __name__ == "__main__":
     main()
