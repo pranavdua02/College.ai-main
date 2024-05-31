@@ -19,3 +19,4 @@ flask-socketio
 streamlit_chat
 
 streamlit-on-Hover-tabs
+httpx-oauth
