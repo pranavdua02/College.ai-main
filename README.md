@@ -9,6 +9,7 @@ Tutorial video: https://www.youtube.com/watch?v=K2QHmboTf8o
 
 ## Table of Contents
 - [Introduction](#introduction)
+- [Features](#Features)
 - [Dependencies](#dependencies)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
@@ -19,6 +20,14 @@ Tutorial video: https://www.youtube.com/watch?v=K2QHmboTf8o
 ## 🚀Introduction
 
  College.ai , your comprehensive solution for exploring the capabilities of ChatGPT-4! This project offers a variety of features, including a Home page, an About section, Ask_To_PDF functionality for training/uploading PDFs, Resume_Analyser for analyzing resumes, ATS for matching job descriptions and resumes, and examples for prompting in Ask to PDF.
+
+## Features
+ - Home Page: Introduction to College.ai.
+ - About Section: Information about the creator and project details.
+ - Ask_To_PDF Functionality: Train/upload PDFs and make queries.
+ - Resume_Analyser: Analyze resumes and provide recommendations.
+ - Applicant Tracking System (ATS): Match job descriptions with resumes and provide feedback.
+ - Prompt Examples: Examples for prompting in Ask to PDF.
 
 ## Dependencies
 
@@ -93,7 +102,7 @@ Note: Make sure you always create a updated PR.
 
 ### 📄 Documentation
 
-Explore our comprehensive documentation in the [LEARN.md]https://github.com/SurajSanap/College.ai-main/blob/main/Learn.md file, which serves as a detailed guide to understanding and contributing to UniCollab. This document covers various aspects of the project, including setup instructions, architecture overview, and contribution guidelines. We recommend referring to this documentation to gain a deeper insight into UniCollab and make meaningful contributions to its development.
+Explore our comprehensive documentation in the [LEARN.md]https://github.com/SurajSanap/College.ai-main/blob/main/Learn.md file, which serves as a detailed guide to understanding and contributing to College.ai. This document covers various aspects of the project, including setup instructions, architecture overview, and contribution guidelines. We recommend referring to this documentation to gain a deeper insight into UniCollab and make meaningful contributions to its development.
 
 ## 📝License
 
