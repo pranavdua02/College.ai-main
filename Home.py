@@ -38,35 +38,35 @@ def home():
 
 def main():
    
-    # st.markdown("""
-    #     <style>
-    #         /* Target the root container and reduce its padding */
-    #         .css-1y0tads {
-    #             padding-top: 0px !important;
-    #             padding-bottom: 0px !important;
-    #         }
+    st.markdown("""
+        <style>
+            /* Target the root container and reduce its padding */
+            .css-1y0tads {
+                padding-top: 0px !important;
+                padding-bottom: 0px !important;
+            }
             
-    #         /* Further reduce padding within the main block container */
-    #         .block-container {
-    #             padding-top: 0px !important;
-    #             margin-top: 0px !important;
-    #             padding-bottom: 0px !important;
-    #             margin-bottom: 0px !important;
-    #         }
+            /* Further reduce padding within the main block container */
+            .block-container {
+                padding-top: 0px !important;
+                margin-top: 0px !important;
+                padding-bottom: 0px !important;
+                margin-bottom: 0px !important;
+            }
 
-    #         /* Reduce space around the main area */
-    #         .css-1lcbmhc {
-    #             padding-top: 0px !important;
-    #             padding-bottom: 0px !important;
-    #         }
+            /* Reduce space around the main area */
+            .css-1lcbmhc {
+                padding-top: 0px !important;
+                padding-bottom: 0px !important;
+            }
 
-    #         /* Adjust Streamlit markdown blocks to reduce top margin */
-    #         .stMarkdown {
-    #             margin-top: 0px !important;
-    #         }
+            /* Adjust Streamlit markdown blocks to reduce top margin */
+            .stMarkdown {
+                margin-top: 0px !important;
+            }
                 
-    #     </style>
-    #     """, unsafe_allow_html=True)
+        </style>
+        """, unsafe_allow_html=True)
     with st.sidebar:
         st.image('src/Logo College.png', width=70)
         tabs = on_hover_tabs(tabName=['Home', 'AI Lens', 'Ask To PDF', 'Resume Analyser', 'ATS', 'Prompt Examples', 'About', 'Account'], 
