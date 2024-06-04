@@ -3,7 +3,7 @@ import streamlit as st
 from streamlit_lottie import st_lottie 
 
 def show_thank_you_emoji():
-    st.text("💖")
+    st.text("  💖  ")
 
 def Lens():
     st.markdown("1. AI Lens")
@@ -44,7 +44,7 @@ def main():
         animation = json.load(anim_source)
     st_lottie(animation, 1, True, True, "high", 200, -200)
 
-    st.text("-                     ©️Suraj Sanap Project 2024                  -")
+    st.text("-                        ©️Suraj Sanap Project 2024                     -")
     st.write("\n")
 
     col1, col2, col3 = st.columns([1,1,1])
