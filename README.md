@@ -43,11 +43,7 @@ Make sure you have the following dependencies installed:
 - [poppler-utils](https://poppler.freedesktop.org/)
 - [streamlit_lottie](https://github.com/okld/streamlit-lottie)
 
-Can install them using the following:
 
-```bash
-pip install -r requirements.txt
-```
 
 ## 🛠️Installation
 
@@ -98,6 +94,23 @@ git push origin my-branch
 ```
 8. Create a pull request
 Finally, you can create a pull request on the GitHub website. This will allow the repository owner to review your changes and decide whether to merge them into the main branch.
+
+
+
+
+
+
+
+
+
+
+##Install requirements:
+
+```bash
+pip install -r requirements.txt
+```
+
+
 ## Getting Started
 
 To start the application, run the following command:
