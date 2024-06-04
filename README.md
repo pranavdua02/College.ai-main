@@ -43,11 +43,7 @@ Make sure you have the following dependencies installed:
 - [poppler-utils](https://poppler.freedesktop.org/)
 - [streamlit_lottie](https://github.com/okld/streamlit-lottie)
 
-Can install them using the following:
 
-```bash
-pip install -r requirements.txt
-```
 
 ## 🛠️Installation
 
@@ -61,6 +57,12 @@ git clone <link>
 
 ```bash
 cd <filename>
+```
+
+##Install requirements:
+
+```bash
+pip install -r requirements.txt
 ```
 
 ## Getting Started
