@@ -28,29 +28,6 @@ https://youtu.be/K2QHmboTf8o?si=42LbPMeTPQYCDgNX
  - Applicant Tracking System (ATS): Match job descriptions with resumes and provide feedback.
  - Prompt Examples: Examples for prompting in Ask to PDF.
 
- ## Example Usage
-
-### Ask_To_PDF
-1. Upload your PDF file.
-   ![Ask_To_PDF Upload](src/sk_to_pdf_upload.png)
-2. Type your query related to the content of the PDF.
-   ![Ask_To_PDF Query](src/ask_to_pdf_query.png)
-3. Receive the response based on the PDF content.
-   ![Ask_To_PDF Response](src/ask_to_pdf_response.png)
-
-### Resume_Analyser
-1. Upload your resume.
-   ![Resume_Analyser Upload](src/resume_analyser_upload.png)
-2. Get detailed analysis and recommendations for improvement.
-   ![Resume_Analyser Analysis](src/resume_analyser_analysis.png)
-
-### ATS
-1. Upload your resume and job description.
-   ![ATS Upload](src/ats_upload.png)
-2. Get a match score and feedback to improve your resume for the job.
-   ![ATS Feedback](src/ats_feedback.png)
-
-
 ## Dependencies
 
 Make sure you have the following dependencies installed:
@@ -117,14 +94,6 @@ git push origin my-branch
 ```
 8. Create a pull request
 Finally, you can create a pull request on the GitHub website. This will allow the repository owner to review your changes and decide whether to merge them into the main branch.
-
-
-
-
-
-
-
-
 
 
 ##Install requirements:
