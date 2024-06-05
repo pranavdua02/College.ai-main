@@ -32,23 +32,23 @@ Tutorial video: https://www.youtube.com/watch?v=K2QHmboTf8o
 
 ### Ask_To_PDF
 1. Upload your PDF file.
-   ![Ask_To_PDF Upload]("GitHub\College.ai-main\src\ask_to_pdf_upload.png)
+   ![Ask_To_PDF Upload](src/sk_to_pdf_upload.png)
 2. Type your query related to the content of the PDF.
-   ![Ask_To_PDF Query](GitHub\College.ai-main\src\ask_to_pdf_query.png)
+   ![Ask_To_PDF Query](src/ask_to_pdf_query.png)
 3. Receive the response based on the PDF content.
-   ![Ask_To_PDF Response](GitHub\College.ai-main\src\ask_to_pdf_response.png)
+   ![Ask_To_PDF Response](src/ask_to_pdf_response.png)
 
 ### Resume_Analyser
 1. Upload your resume.
    ![Resume_Analyser Upload](src/resume_analyser_upload.png)
 2. Get detailed analysis and recommendations for improvement.
-   ![Resume_Analyser Analysis](GitHub\College.ai-main\src\resume_analyser_analysis.png)
+   ![Resume_Analyser Analysis](src/resume_analyser_analysis.png)
 
 ### ATS
 1. Upload your resume and job description.
-   ![ATS Upload](GitHub\College.ai-main\src\ats_upload.png)
+   ![ATS Upload](src/ats_upload.png)
 2. Get a match score and feedback to improve your resume for the job.
-   ![ATS Feedback](GitHub\College.ai-main\src\ats_feedback.png)
+   ![ATS Feedback](src/ats_feedback.png)
 
 
 ## Dependencies
