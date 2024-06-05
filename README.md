@@ -40,7 +40,7 @@ Tutorial video: https://www.youtube.com/watch?v=K2QHmboTf8o
 
 ### Resume_Analyser
 1. Upload your resume.
-   ![Resume_Analyser Upload](GitHub\College.ai-main\src\resume_analyser_upload.png)
+   ![Resume_Analyser Upload](src/resume_analyser_upload.png)
 2. Get detailed analysis and recommendations for improvement.
    ![Resume_Analyser Analysis](GitHub\College.ai-main\src\resume_analyser_analysis.png)
 
