@@ -23,7 +23,7 @@ themes = {
     "light": {
         "theme.base": "dark",
         "theme.backgroundColor": "black",
-        "theme.primaryColor": "#b257c9",
+        "theme.primaryColor": "#b69dc9",
         "theme.secondaryBackgroundColor": "#442061",
         "theme.textColor": "white",
         "button_face": "🌜"
@@ -31,7 +31,7 @@ themes = {
     "dark": {
         "theme.base": "light",
         "theme.backgroundColor": "white",
-        "theme.primaryColor": "#5591f5",
+        "theme.primaryColor": "#b69dc9",
         "theme.secondaryBackgroundColor": "#82E1D7",
         "theme.textColor": "#0a1464",
         "button_face": "🌞"
