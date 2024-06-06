@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(page_title="College.ai", page_icon='src/Logo College.png', layout='centered', initial_sidebar_state="auto")
 st.markdown('<style>' + open('./src/style.css').read() + '</style>', unsafe_allow_html=True)
 
-from streamlit_lottie import st_lottie 
+from streamlit_lottie import st_lottie
 from st_on_hover_tabs import on_hover_tabs
 import json
 
@@ -18,20 +18,22 @@ from menu.User import main as user_page
 # Initialize session state for theme
 if "current_theme" not in st.session_state:
     st.session_state.current_theme = "light"
+if "theme_changed" not in st.session_state:
+    st.session_state.theme_changed = False
 
 themes = {
     "light": {
         "theme.base": "dark",
         "theme.backgroundColor": "black",
-        "theme.primaryColor": "#b69dc9",
-        "theme.secondaryBackgroundColor": "#442061",
+        "theme.primaryColor": "#c98bdb",
+        "theme.secondaryBackgroundColor": "#5591f5",
         "theme.textColor": "white",
         "button_face": "🌜"
     },
     "dark": {
         "theme.base": "light",
         "theme.backgroundColor": "white",
-        "theme.primaryColor": "#b69dc9",
+        "theme.primaryColor": "#5591f5",
         "theme.secondaryBackgroundColor": "#82E1D7",
         "theme.textColor": "#0a1464",
         "button_face": "🌞"
@@ -43,15 +45,19 @@ def change_theme():
     current_theme = st.session_state.current_theme
     new_theme = "dark" if current_theme == "light" else "light"
     st.session_state.current_theme = new_theme
-    for key, value in themes[new_theme].items():
-        st._config.set_option(key, value)
-    # Only re-render the necessary components
-    st.experimental_rerun()
+    st.session_state.theme_changed = True
 
 # Display theme change button
 btn_face = themes[st.session_state.current_theme]["button_face"]
 if st.button(btn_face, on_click=change_theme):
     pass
+
+# Apply theme changes if theme has changed
+if st.session_state.theme_changed:
+    tdict = themes[st.session_state.current_theme]
+    for key, value in tdict.items():
+        st._config.set_option(key, value)
+    st.session_state.theme_changed = False
 
 # Home Page Function
 def home():
