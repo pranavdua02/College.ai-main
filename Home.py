@@ -23,8 +23,8 @@ themes = {
     "light": {
         "theme.base": "dark",
         "theme.backgroundColor": "black",
-        "theme.primaryColor": "#c98bdb",
-        "theme.secondaryBackgroundColor": "#5591f5",
+        "theme.primaryColor": "#b257c9",
+        "theme.secondaryBackgroundColor": "#442061",
         "theme.textColor": "white",
         "button_face": "🌜"
     },
