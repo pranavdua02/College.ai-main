@@ -1,6 +1,8 @@
 import streamlit as st
 
 st.set_page_config(page_title="College.ai", page_icon='src/Logo College.png', layout='centered', initial_sidebar_state="auto")
+
+# Load CSS file
 st.markdown('<style>' + open('./src/style.css').read() + '</style>', unsafe_allow_html=True)
 
 from streamlit_lottie import st_lottie
@@ -18,8 +20,6 @@ from menu.User import main as user_page
 # Initialize session state for theme
 if "current_theme" not in st.session_state:
     st.session_state.current_theme = "light"
-if "theme_changed" not in st.session_state:
-    st.session_state.theme_changed = False
 
 themes = {
     "light": {
@@ -35,7 +35,7 @@ themes = {
         "theme.backgroundColor": "white",
         "theme.primaryColor": "#c19ad9",
         "theme.secondaryBackgroundColor": "#c98bdb",
-        "theme.textColor": "#black",
+        "theme.textColor": "black",
         "button_face": "🌞"
     }
 }
@@ -45,19 +45,16 @@ def change_theme():
     current_theme = st.session_state.current_theme
     new_theme = "dark" if current_theme == "light" else "light"
     st.session_state.current_theme = new_theme
-    st.session_state.theme_changed = True
 
 # Display theme change button
 btn_face = themes[st.session_state.current_theme]["button_face"]
 if st.button(btn_face, on_click=change_theme):
     pass
 
-# Apply theme changes if theme has changed
-if st.session_state.theme_changed:
-    tdict = themes[st.session_state.current_theme]
-    for key, value in tdict.items():
-        st._config.set_option(key, value)
-    st.session_state.theme_changed = False
+# Apply theme changes
+tdict = themes[st.session_state.current_theme]
+for key, value in tdict.items():
+    st._config.set_option(key, value)
 
 # Home Page Function
 def home():
