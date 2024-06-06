@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config("College.ai", page_icon='src/Logo College.png', layout='centered')
+st.set_page_config(page_title="College.ai", page_icon='src/Logo College.png', layout='centered',initial_sidebar_state="auto")
 st.markdown('<style>' + open('./src/style.css').read() + '</style>', unsafe_allow_html=True)
 
 from streamlit_lottie import st_lottie 
