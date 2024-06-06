@@ -1,4 +1,5 @@
 import streamlit as st
+import toml
 
 st.set_page_config(page_title="College.ai", page_icon='src/Logo College.png', layout='centered', initial_sidebar_state="auto")
 
@@ -8,6 +9,7 @@ st.markdown('<style>' + open('./src/style.css').read() + '</style>', unsafe_allo
 from streamlit_lottie import st_lottie
 from st_on_hover_tabs import on_hover_tabs
 import json
+import os
 
 from menu.About import main as about_page
 from menu.AI_Lens import main as ai_lens_page
@@ -23,38 +25,51 @@ if "current_theme" not in st.session_state:
 
 themes = {
     "light": {
-        "theme.base": "dark",
-        "theme.backgroundColor": "black",
-        "theme.primaryColor": "#c98bdb",
-        "theme.secondaryBackgroundColor": "#c98bdb",
-        "theme.textColor": "white",
-        "button_face": "🌜"
+        "base": "light",
+        "primaryColor": "#c19ad9",
+        "backgroundColor": "white",
+        "secondaryBackgroundColor": "#c98bdb",
+        "textColor": "black",
+        "button_face": "🌞"
     },
     "dark": {
-        "theme.base": "light",
-        "theme.backgroundColor": "white",
-        "theme.primaryColor": "#c19ad9",
-        "theme.secondaryBackgroundColor": "#c98bdb",
-        "theme.textColor": "black",
-        "button_face": "🌞"
+        "base": "dark",
+        "primaryColor": "#c98bdb",
+        "backgroundColor": "black",
+        "secondaryBackgroundColor": "#c98bdb",
+        "textColor": "white",
+        "button_face": "🌜"
     }
 }
 
-# Change theme function
 def change_theme():
     current_theme = st.session_state.current_theme
     new_theme = "dark" if current_theme == "light" else "light"
     st.session_state.current_theme = new_theme
+    
+    # Write the new theme to the config.toml file
+    new_config = {
+        "theme": themes[new_theme]
+    }
+    with open('.streamlit/config.toml', 'w') as configfile:
+        toml.dump(new_config, configfile)
+    
+    # Simulate a reload to apply the new theme
+    st.experimental_rerun()
 
 # Display theme change button
 btn_face = themes[st.session_state.current_theme]["button_face"]
-if st.button(btn_face, on_click=change_theme):
-    pass
+if st.button(btn_face):
+    change_theme()
 
-# Apply theme changes
-tdict = themes[st.session_state.current_theme]
-for key, value in tdict.items():
-    st._config.set_option(key, value)
+# Apply theme changes from config.toml
+def apply_theme():
+    config = toml.load('.streamlit/config.toml')
+    theme_config = config['theme']
+    for key, value in theme_config.items():
+        st._config.set_option(f'theme.{key}', value)
+
+apply_theme()
 
 # Home Page Function
 def home():
