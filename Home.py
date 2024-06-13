@@ -83,17 +83,24 @@ def main():
     """, unsafe_allow_html=True)
     
     with st.sidebar:
-        # Display theme change button within the sidebar
-        st.image('src/Logo College.png', width=70)
-       
-        btn_face = "🌞" if st.session_state.current_theme == "light" else "🌜"
-        if st.button(btn_face):
-            change_theme()
-        apply_theme()
+      st.image('src/Logo College.png', width=75)
         tabs = on_hover_tabs(
             tabName=['Home', 'AI Lens', 'Ask To PDF', 'Resume Analyser', 'ATS', 'Prompt Examples', 'About', 'Account'], 
             iconName=['home', 'center_focus_weak', 'search', 'article', 'work', 'edit', 'info', 'account_circle'], 
-            default_choice=0
+            styles = {'navtab': {'background-color':'#16161D',
+                                                  'color': '#F8F9F5',
+                                                  'font-size': '18px',
+                                                  'transition': '.3s',
+                                                  'white-space': 'nowrap',
+                                                  'text-transform': 'uppercase'},
+                                       'tabOptionsStyle': {':hover :hover': {'color': '#7FC7D9',
+                                                                      'cursor': 'pointer'}},
+                                       'iconStyle':{'position':'fixed',
+                                                    'left':'7.5px',
+                                                    'text-align': 'left'},
+                                       'tabStyle' : {'list-style-type': 'none',
+                                                     'margin-bottom': '30px',
+                                                     'padding-left': '30px'}}
         )
 
     menu = {
