@@ -40,7 +40,7 @@ async def get_email(client: GoogleOAuth2, token: str):
     
 def get_logged_in_user_email():
     try:
-        query_params = st.query_params()
+        query_params = st.experimental_get_query_params()
         code = query_params.get('code')
         if code:
             token = asyncio.run(get_access_token(client, redirect_url, code))
@@ -70,7 +70,7 @@ def show_login_button():
         button_html = f'<a href="{authorization_url}" target="_self" style="text-decoration: none;"><button style="background-color: #2F80ED; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">Login via Google</button></a>'
         st.markdown(button_html, unsafe_allow_html=True)
     except Exception as e:
-        st.error(f"Errpr showing login button: {e}")
+        st.error(f"Error showing login button: {e}")
         
 def generate_otp():
     otp = ''.join(random.choices(string.digits, k=6))
@@ -114,6 +114,7 @@ def main():
             email = form.text_input("Email")
 
             if form.form_submit_button("Sign Up"):
+                new_password = form.text_input("New Password", type="password")
                 hashed_password = generate_password_hash(new_password)
                 c.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", (new_user, hashed_password, email))
                 conn.commit()
@@ -129,9 +130,10 @@ def main():
             email = form.text_input("Enter Email")
 
             if form.form_submit_button("Send OTP"):
-                c.execute("SELECT * FROM users WHERE email=?", (email,))
+                c.execute("SELECT * FROM users WHERE username=?", (user,))
                 result = c.fetchone()
-                if result:
+                if result and check_password_hash(result[2], password):
+
                     otp = generate_otp()
                     send_otp(email, otp)
                     st.success("OTP sent successfully! Check your email.")
