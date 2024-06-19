@@ -80,7 +80,7 @@ def send_otp(email, otp):
     st.write(f"An OTP has been sent to {email}. Your OTP is: {otp}")
 
 def main():
-    st.write("<h1><center> Authentication Portal</center></h1>", unsafe_allow_html=True)
+    st.markdown("<h1><center> Authentication Portal</center></h1>", unsafe_allow_html=True)
     
     if "logged_in" not in st.session_state:
         form_type = st.selectbox('Login/Signup/Forgot Password', ['Login', 'Sign Up', 'Forgot Password'])
@@ -95,7 +95,7 @@ def main():
             if form.form_submit_button("Login"):
                 c.execute("SELECT * FROM users WHERE username=? AND password=?", (user, password))
                 result = c.fetchone()
-                if result:
+                if result and check_password_hash(result[2], password):
                     st.session_state["user"] = user
                     st.session_state["logged_in"] = True
                     st.success("Logged in successfully!")
@@ -114,7 +114,8 @@ def main():
             email = form.text_input("Email")
 
             if form.form_submit_button("Sign Up"):
-                c.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", (new_user, new_password, email))
+                hashed_password = generate_password_hash(new_password)
+                c.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", (new_user, hashed_password, email))
                 conn.commit()
                 st.success("Account created successfully! Please login.")
                 #st.balloons()
