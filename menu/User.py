@@ -5,6 +5,7 @@ import string
 import asyncio
 from httpx_oauth.clients.google import GoogleOAuth2
 from firebase_admin import auth, exceptions
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # Initialize Streamlit title
 st.title("College.ai")
@@ -23,12 +24,20 @@ redirect_url = "YOUR_REDIRECT_URL"
 client = GoogleOAuth2(client_id=client_id, client_secret=client_secret)
 
 async def get_access_token(client: GoogleOAuth2, redirect_url: str, code: str):
-    return await client.get_access_token(code, redirect_url)
-
+    try:
+        return await client.get_access_token(code, redirect_url)
+    except Exception as e:
+        st.error(f"Error getting access token: {e}")
+        return None
+    
 async def get_email(client: GoogleOAuth2, token: str):
-    user_id, user_email = await client.get_id_email(token)
-    return user_id, user_email
-
+    try:
+        user_id, user_email = await client.get_id_email(token)
+        return user_id, user_email
+    except Exception as e:
+        st.error(f"Error getting email: {e}")
+        return None, None
+    
 def get_logged_in_user_email():
     try:
         query_params = st.query_params()
@@ -47,18 +56,22 @@ def get_logged_in_user_email():
                     st.session_state.email = user.email
                     return user.email
         return None
-    except:
-        pass
+    except Exception as e:
+        st.error(f"Error during Google login: {e}")
+        return None
 
 def show_login_button():
-    authorization_url = asyncio.run(client.get_authorization_url(
-        redirect_url,
-        scope=["email", "profile"],
-        extras_params={"access_type": "offline"},
-    ))
-    button_html = f'<a href="{authorization_url}" target="_self" style="text-decoration: none;"><button style="background-color: #2F80ED; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">Login via Google</button></a>'
-    st.markdown(button_html, unsafe_allow_html=True)
-
+    try:
+        authorization_url = asyncio.run(client.get_authorization_url(
+            redirect_url,
+            scope=["email", "profile"],
+            extras_params={"access_type": "offline"},
+        ))
+        button_html = f'<a href="{authorization_url}" target="_self" style="text-decoration: none;"><button style="background-color: #2F80ED; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">Login via Google</button></a>'
+        st.markdown(button_html, unsafe_allow_html=True)
+    except Exception as e:
+        st.error(f"Errpr showing login button: {e}")
+        
 def generate_otp():
     otp = ''.join(random.choices(string.digits, k=6))
     return otp
@@ -132,6 +145,8 @@ def main():
             del st.session_state["logged_in"]
             del st.session_state["user"]
             st.success("Logged out successfully!")
+    
+    conn.close()
 
 if __name__ == "__main__":
     main()
