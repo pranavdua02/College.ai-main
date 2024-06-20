@@ -43,6 +43,8 @@ Make sure you have the following dependencies installed:
 - [pdf2image](https://github.com/Belval/pdf2image)
 - [poppler-utils](https://poppler.freedesktop.org/)
 - [streamlit_lottie](https://github.com/okld/streamlit-lottie)
+- [beautifulSoup ](https://pypi.org/project/beautifulsoup4/)
+
 
 
 
