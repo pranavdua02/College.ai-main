@@ -10,11 +10,6 @@ poppler-utils
 streamlit_lottie
 spacy
 langchain-community
-beautifulsoup4
-numpy
-pandas
-Requests
-requests_html
 
 
 streamlit-webrtc
