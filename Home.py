@@ -16,6 +16,7 @@ from menu.ATS import main as ats_page
 from menu.Prompt_Examples import main as prompt_examples_page
 from menu.Resume_Analyser import main as resume_analyser_page
 from menu.User import main as user_page
+from menu.Contest_Calendar import main as contest_calendar
 
 # Initialize session state for theme
 if "current_theme" not in st.session_state:
@@ -91,8 +92,8 @@ def main():
             change_theme()
         apply_theme()
         tabs = on_hover_tabs(
-            tabName=['Home', 'AI Lens', 'Ask To PDF', 'Resume Analyser', 'ATS', 'Prompt Examples', 'About', 'Account'], 
-            iconName=['home', 'center_focus_weak', 'search', 'article', 'work', 'edit', 'info', 'account_circle'], 
+            tabName=['Home', 'AI Lens', 'Ask To PDF', 'Resume Analyser', 'ATS','Contest Calendar',  'Prompt Examples', 'About', 'Account'], 
+            iconName=['home', 'center_focus_weak', 'search', 'article', 'work','calendar_month', 'edit', 'info', 'account_circle'], 
             default_choice=0
         )
 
@@ -102,12 +103,14 @@ def main():
         'Ask To PDF': ask_to_pdf_page,
         'Resume Analyser': resume_analyser_page,
         'ATS': ats_page,
+        'Contest Calendar':contest_calendar,
         'Prompt Examples': prompt_examples_page,
         'About': about_page,
         'Account': user_page,
     }
-    
     menu[tabs]()
+    
+
 
 if __name__ == "__main__":
     main()
