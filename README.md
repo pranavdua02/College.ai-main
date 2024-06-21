@@ -25,6 +25,7 @@ https://youtu.be/K2QHmboTf8o?si=42LbPMeTPQYCDgNX
  - About Section: Information about the creator and project details.
  - Ask_To_PDF Functionality: Train/upload PDFs and make queries.
  - Resume_Analyser: Analyze resumes and provide recommendations.
+ - Contest_Calendar: Information about all the upcoming coding contest.
  - Applicant Tracking System (ATS): Match job descriptions with resumes and provide feedback.
  - Prompt Examples: Examples for prompting in Ask to PDF.
 
@@ -42,7 +43,7 @@ Make sure you have the following dependencies installed:
 - [pdf2image](https://github.com/Belval/pdf2image)
 - [poppler-utils](https://poppler.freedesktop.org/)
 - [streamlit_lottie](https://github.com/okld/streamlit-lottie)
-
+- [beautifulSoup ](https://pypi.org/project/beautifulsoup4/)
 
 
 ## 🛠️Installation
@@ -120,6 +121,7 @@ This will launch the College.ai application in your default web browser.
   - `About.py`: Information about the creator and other details.
   - `Ask_To_PDF.py`: Functionality to train/upload PDFs and make queries.
   - `Resume_Analyser.py`: Analyze resumes and provide recommendations.
+  - `Contest_Calendar.py`: Information about all the upcoming coding contest.
   - `ATS.py`: Match job descriptions with resumes and show feedback.
   - `Prompt_Examples.py`: Examples for prompting in Ask to PDF.
 
