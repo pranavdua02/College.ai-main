@@ -45,6 +45,7 @@ def change_theme():
     new_theme = "dark" if current_theme == "light" else "light"
     st.session_state.current_theme = new_theme
     apply_theme()
+    st.rerun() # Calling the apply theme function as soon as theme button is hit
 
 # Apply theme changes
 def apply_theme():
@@ -90,7 +91,7 @@ def main():
         btn_face = "🌞" if st.session_state.current_theme == "light" else "🌜"
         if st.button(btn_face):
             change_theme()
-        apply_theme()
+        # apply_theme() -> Not required
         tabs = on_hover_tabs(
             tabName=['Home', 'AI Lens', 'Ask To PDF', 'Resume Analyser', 'ATS','Contest Calendar',  'Prompt Examples', 'About', 'Account'], 
             iconName=['home', 'center_focus_weak', 'search', 'article', 'work','calendar_month', 'edit', 'info', 'account_circle'],  
