@@ -44,7 +44,7 @@ def main():
         animation = json.load(anim_source)
     st_lottie(animation, 1, True, True, "high", 200, -200)
 
-    st.markdown("<p style='text-align: center;'>- blue[©️Suraj Sanap] Project 2024 -</p>", unsafe_allow_html=True)
+    st.header("<p style='text-align: center;'>- blue[©️Suraj Sanap] Project 2024 -</p>", unsafe_allow_html=True)
     st.write("\n")
 
     col1, col2, col3 = st.columns([1,1,1])
