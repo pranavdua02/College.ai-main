@@ -60,7 +60,8 @@ def main():
             except:
                 print("💝")
 
-    st.text("________________________________________________________________________________________________________________")
+st.header('This is a header with a divider', divider='rainbow')
+st.header('_Streamlit_ is :blue[cool] :sunglasses:')
     st.write("\n")
     st.write("\n")
 
