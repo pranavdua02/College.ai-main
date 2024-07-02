@@ -35,8 +35,9 @@ def ResumeAnalyzer():
     
     st.write("Check your resume's goodness \n Get recommendations for skills, fields, courses, etc.")
 
+
 def main():
-    a = "<h1 style='text-align: center;'>About</h1>"
+    a = "<h1><center>About</center></h1>"
 
     st.write(a, unsafe_allow_html=True)
     with open('src/About.json') as anim_source:
@@ -46,27 +47,18 @@ def main():
     st.markdown("<p style='text-align: center;'>- ©️Suraj Sanap Project 2024 -</p>", unsafe_allow_html=True)
     st.write("\n")
 
-    # Center the buttons using custom CSS
-    st.markdown("""
-        <style>
-        .centered-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .centered-buttons button {
-            padding: 10px 20px;
-        }
-        </style>
-    """, unsafe_allow_html=True)
-
-    st.markdown('<div class="centered-buttons">', unsafe_allow_html=True)
-    st.markdown(f'<a href="https://github.com/SurajSanap" target="_blank"><button>GitHub</button></a>', unsafe_allow_html=True)
-    st.markdown(f'<a href="https://www.linkedin.com/in/surajsanap01" target="_blank"><button>LinkedIn</button></a>', unsafe_allow_html=True)
-    if st.button('Thank you'):
-        show_thank_you_emoji()
-    st.markdown('</div>', unsafe_allow_html=True)
+    col1, col2, col3 = st.columns([1,1,1])
+    
+    with col1:
+        st.link_button('GitHub', "https://github.com/SurajSanap")
+    with col2:
+        st.link_button('LinkedIn', "https://www.linkedin.com/in/surajsanap01")
+    with col3:
+        if st.button('Thankyou'):
+            try:
+                show_thank_you_emoji()
+            except:
+                print("💝")
 
     st.text("________________________________________________________________________________________________________________")
     st.write("\n")
@@ -74,10 +66,15 @@ def main():
 
     st.header("Page info:")
     
+    
     Lens()
     Ask_To_PDF()
     ATS()
     ResumeAnalyzer()
     
+    
 if __name__=="__main__":
     main()
+
+
+the button and should be in center of page. and the ©️Suraj Sanap Project 2024  name also
