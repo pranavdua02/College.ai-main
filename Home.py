@@ -125,7 +125,7 @@ def main():
     menu[tabs]()
     
     # Footer
-    > footer="""<style>
+    footer="""<style>
 a:link , a:visited{
 color: blue;
 background-color: transparent;
@@ -153,7 +153,7 @@ text-align: center;
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
-> ```
+
 Hello @Heflin_Stephen_Raj_S , this worke
 
 if __name__ == "__main__":
