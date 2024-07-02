@@ -81,6 +81,18 @@ def main():
                 padding-top: 0px !important;
                 padding-bottom: 0px !important;
             }
+            /* Footer styling */
+            footer {
+                text-align: center;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: #f1f1f1;
+                color: black;
+                text-align: center;
+                padding: 10px 0;
+            }
         </style>
     """, unsafe_allow_html=True)
     
@@ -111,6 +123,13 @@ def main():
     }
     
     menu[tabs]()
+    
+    # Footer
+    st.markdown("""
+        <footer>
+            <p>Suraj Sanap Project</p>
+        </footer>
+    """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
