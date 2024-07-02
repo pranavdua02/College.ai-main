@@ -54,14 +54,18 @@ def main():
             justify-content: center;
             gap: 20px;
         }
+        .centered-buttons > div {
+            margin: 0 5px;
+        }
         </style>
     """, unsafe_allow_html=True)
 
     st.markdown('<div class="centered-buttons">', unsafe_allow_html=True)
-    st.button('GitHub', key='github', help='https://github.com/SurajSanap')
-    st.button('LinkedIn', key='linkedin', help='https://www.linkedin.com/in/surajsanap01')
-    if st.button('Thank you'):
-        show_thank_you_emoji()
+    with st.container():
+        st.markdown(f'<a href="https://github.com/SurajSanap" target="_blank"><button>GitHub</button></a>', unsafe_allow_html=True)
+        st.markdown(f'<a href="https://www.linkedin.com/in/surajsanap01" target="_blank"><button>LinkedIn</button></a>', unsafe_allow_html=True)
+        if st.button('Thank you'):
+            show_thank_you_emoji()
     st.markdown('</div>', unsafe_allow_html=True)
 
     st.text("________________________________________________________________________________________________________________")
