@@ -77,4 +77,3 @@ if __name__=="__main__":
     main()
 
 
-the button and should be in center of page. and the ©️Suraj Sanap Project 2024  name also
