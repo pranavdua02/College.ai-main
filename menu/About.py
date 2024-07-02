@@ -46,14 +46,23 @@ def main():
     st.markdown("<p style='text-align: center;'>- ©️Suraj Sanap Project 2024 -</p>", unsafe_allow_html=True)
     st.write("\n")
 
-    col1, col2, col3 = st.columns([1,1,1])
-    
-    with col1:
-        st.write("")
-    with col2:
-        st.button('Thank you', on_click=show_thank_you_emoji)
-    with col3:
-        st.write("")
+    # Center the buttons using custom CSS
+    st.markdown("""
+        <style>
+        .centered-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div class="centered-buttons">', unsafe_allow_html=True)
+    st.button('GitHub', key='github', help='https://github.com/SurajSanap')
+    st.button('LinkedIn', key='linkedin', help='https://www.linkedin.com/in/surajsanap01')
+    if st.button('Thank you'):
+        show_thank_you_emoji()
+    st.markdown('</div>', unsafe_allow_html=True)
 
     st.text("________________________________________________________________________________________________________________")
     st.write("\n")
