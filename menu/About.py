@@ -63,7 +63,7 @@ def main():
             except:
                 print("💝")
 
-    st.header('Suraj Sanap Project', divider='rainbow')
+    st.header('', divider='rainbow')
     st.header('_Streamlit_ is :blue[cool] :sunglasses:')
 
     st.write("\n")
