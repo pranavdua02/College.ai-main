@@ -64,7 +64,7 @@ def main():
                 print("💝")
 
     st.header('', divider='rainbow')
-    st.header('_Streamlit_ is :blue[cool] :sunglasses:')
+    #st.header('_Streamlit_ is :blue[cool] :sunglasses:')
 
     st.write("\n")
     st.write("\n")
