@@ -35,30 +35,25 @@ def ResumeAnalyzer():
     
     st.write("Check your resume's goodness \n Get recommendations for skills, fields, courses, etc.")
 
-
 def main():
-    a = "<h1><center>About</center></h1>"
+    a = "<h1 style='text-align: center;'>About</h1>"
 
     st.write(a, unsafe_allow_html=True)
     with open('src/About.json') as anim_source:
         animation = json.load(anim_source)
     st_lottie(animation, 1, True, True, "high", 200, -200)
 
-    st.text("-                        ©️Suraj Sanap Project 2024                     -")
+    st.markdown("<p style='text-align: center;'>- ©️Suraj Sanap Project 2024 -</p>", unsafe_allow_html=True)
     st.write("\n")
 
     col1, col2, col3 = st.columns([1,1,1])
     
     with col1:
-        st.link_button('GitHub', "https://github.com/SurajSanap")
+        st.write("")
     with col2:
-        st.link_button('LinkedIn', "https://www.linkedin.com/in/surajsanap01")
+        st.button('Thank you', on_click=show_thank_you_emoji)
     with col3:
-        if st.button('Thankyou'):
-            try:
-                show_thank_you_emoji()
-            except:
-                print("💝")
+        st.write("")
 
     st.text("________________________________________________________________________________________________________________")
     st.write("\n")
@@ -66,12 +61,10 @@ def main():
 
     st.header("Page info:")
     
-    
     Lens()
     Ask_To_PDF()
     ATS()
     ResumeAnalyzer()
-    
     
 if __name__=="__main__":
     main()
