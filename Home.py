@@ -125,9 +125,9 @@ def main():
     menu[tabs]()
     
     # Footer
-   temperature = "-10"
+   
 
-    st.write(f"SurajSanap2024 :blue[{temperature}]")
+    st.write(f"SurajSanap2024 :blue[{10}]")
     
 
 if __name__ == "__main__":
