@@ -44,7 +44,10 @@ def main():
         animation = json.load(anim_source)
     st_lottie(animation, 1, True, True, "high", 200, -200)
 
-    st.header("<p style='text-align: center;'>- ©️Suraj Sanap Project 2024 -</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>- ©️Suraj Sanap Project 2024 -</p>", unsafe_allow_html=True)
+
+    
+    st.write("\n")
     st.write("\n")
 
     col1, col2, col3 = st.columns([1,1,1])
@@ -60,7 +63,7 @@ def main():
             except:
                 print("💝")
 
-    st.header('This is a header with a divider', divider='rainbow')
+    st.header('Suraj Sanap Project', divider='rainbow')
     st.header('_Streamlit_ is :blue[cool] :sunglasses:')
 
     st.write("\n")
