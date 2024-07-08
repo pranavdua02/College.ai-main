@@ -73,8 +73,4 @@ section[data-testid='stSidebar'] {
     div[data-testid="collapsedControl"]{
         display: none;
     }
-
-    div[data-testid = "stSidebarCollapseButton"]{
-        display: none;
-    }
 }
