@@ -146,7 +146,7 @@ def get_resume_analysis(text):
     return response["output_text"]
 
 def main():
-    st.set_page_config(page_title="Resume Analyzer", page_icon=":memo:")
+    #st.set_page_config(page_title="Resume Analyzer", page_icon=":memo:")
     st.title("Resume Analyzer")
 
     try:
@@ -179,5 +179,5 @@ def main():
                 except Exception as e:
                     st.error(f"An error occurred during processing: {e}")
 
-# if __name__ == "__main__":
-#     main()
+ if __name__ == "__main__":
+     main()
