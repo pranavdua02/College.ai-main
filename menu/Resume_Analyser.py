@@ -21,6 +21,25 @@ load_dotenv()
 # Configure the API key for Google Generative AI
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
+# Centralized configuration
+CONFIG = {
+    "headline": "Resume Analyzer",
+    "animation_path": 'src/Resume.json',
+    "example_skills": ["Python", "Data Analysis"],  # Example skills
+    "prompt_template": """
+        You are an Advanced resume Analyzer.
+        1. Analyze the resume and give the best 3 job domains relevant to the skills in the given context.
+        2. Based on those job domains, separately suggest more skills and best courses from YouTube.
+        3. Suggest improvements in the resume.
+        4. Use bullet points, tables, and keep the text more interactive.
+        5. Ensure the provided YouTube links are working and are the latest.
+
+        Context:\n {context}?\n
+
+        Answer:
+    """
+}
+
 def get_pdf_text(pdf_docs):
     text = ""
     for pdf in pdf_docs:
@@ -46,19 +65,7 @@ def load_vector_store():
     return vector_store
 
 async def get_conversational_chain():
-    prompt_template = """
-    You are an Advanced resume Analyzer.
-    1. Analyze the resume and give the best 3 job domains relevant to the skills in the given context.
-    2. Based on those job domains, separately suggest more skills and best courses from YouTube.
-    3. Suggest improvements in the resume.
-    4. Use bullet points, tables, and keep the text more interactive.
-    5. Ensure the provided YouTube links are working and are the latest.
-
-    Context:\n {context}?\n
-
-    Answer:
-    """
-
+    prompt_template = CONFIG["prompt_template"]
     model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3)
     prompt = PromptTemplate(template=prompt_template, input_variables=["context"])
     chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
@@ -146,11 +153,11 @@ def get_resume_analysis(text):
     return response["output_text"]
 
 def main():
-    #st.set_page_config(page_title="Resume Analyzer", page_icon=":memo:")
-    st.title("Resume Analyzer")
+    #st.set_page_config(page_title=CONFIG["headline"], page_icon=":memo:")
+    st.title(CONFIG["headline"])
 
     try:
-        with open('src/Resume.json', encoding='utf-8') as anim_source:
+        with open(CONFIG["animation_path"], encoding='utf-8') as anim_source:
             animation = json.load(anim_source)
         st_lottie(animation, height=200, width=400)
     except FileNotFoundError:
@@ -168,7 +175,7 @@ def main():
                         st.session_state.output_text = analysis_result
                         st.write("Reply: ", st.session_state.output_text)
 
-                        skills = ["Python", "Data Analysis"]  # Example skills; extract from analysis result
+                        skills = CONFIG["example_skills"]  # Example skills; extract from analysis result
                         youtube_links = get_youtube_links(skills)
                         st.divider()
                         st.text("Additional Courses:")
