@@ -12,6 +12,8 @@ from dotenv import load_dotenv
 from streamlit_lottie import st_lottie
 import json
 import asyncio
+import requests
+import hashlib
 
 # Load environment variables
 load_dotenv()
@@ -83,51 +85,99 @@ def user_input(user_question):
     except Exception as e:
         st.error(f"An error occurred: {e}")
 
-def main():
-    # Load animation from JSON
-    
+def get_youtube_links(skills):
+    api_key = os.getenv("YOUTUBE_API_KEY")
+    search_url = "https://www.googleapis.com/youtube/v3/search"
+    video_urls = []
 
+    for skill in skills:
+        params = {
+            "part": "snippet",
+            "q": f"{skill} course",
+            "key": api_key,
+            "maxResults": 3,
+            "type": "video"
+        }
+        response = requests.get(search_url, params=params)
+        if response.status_code == 200:
+            videos = response.json().get("items", [])
+            for video in videos:
+                video_urls.append(f"https://www.youtube.com/watch?v={video['id']['videoId']}")
+        else:
+            st.error(f"Failed to fetch YouTube videos for {skill}")
+
+    return video_urls
+
+def cache_data(func):
+    cache_dir = "cache"
+    os.makedirs(cache_dir, exist_ok=True)
+
+    def wrapper(*args, **kwargs):
+        cache_key = hashlib.md5(str(args).encode()).hexdigest()
+        cache_file = os.path.join(cache_dir, cache_key)
+
+        if os.path.exists(cache_file):
+            with open(cache_file, "r") as f:
+                return json.load(f)
+        else:
+            result = func(*args, **kwargs)
+            with open(cache_file, "w") as f:
+                json.dump(result, f)
+            return result
+
+    return wrapper
+
+@cache_data
+def get_resume_analysis(text):
+    text_chunks = get_text_chunks(text)
+    get_vector_store(text_chunks)
+    vector_store = load_vector_store()
+    docs = vector_store.similarity_search(text)
     
-    st.write("<h1><center>Resume Analyser</center></h1>", unsafe_allow_html=True)
-    st.write("")
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    chain = loop.run_until_complete(get_conversational_chain())
+
+    response = chain(
+        {"input_documents": docs},
+        return_only_outputs=True
+    )
+    
+    return response["output_text"]
+
+def main():
+    st.set_page_config(page_title="Resume Analyzer", page_icon=":memo:")
+    st.title("Resume Analyzer")
+
     try:
         with open('src/Resume.json', encoding='utf-8') as anim_source:
             animation = json.load(anim_source)
-        st_lottie(animation, 1, True, True, "high", 200, -200)
+        st_lottie(animation, height=200, width=400)
     except FileNotFoundError:
         st.warning("Animation file not found.")
-    if 'pdf_docs' not in st.session_state:
-        st.session_state.pdf_docs = None
 
-    if 'output_text' not in st.session_state:
-        st.session_state.output_text = ""
-
-    pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True)
+    pdf_docs = st.file_uploader("Upload your PDF Files", accept_multiple_files=True)
 
     if st.button("Process"):
         if pdf_docs:
-            with st.spinner("Analysing..."):
+            with st.spinner("Analyzing..."):
                 try:
                     raw_text = get_pdf_text(pdf_docs)
                     if raw_text:
-                        text_chunks = get_text_chunks(raw_text)
-                        get_vector_store(text_chunks)
-                        user_input(raw_text)
+                        analysis_result = get_resume_analysis(raw_text)
+                        st.session_state.output_text = analysis_result
+                        st.write("Reply: ", st.session_state.output_text)
+
+                        skills = ["Python", "Data Analysis"]  # Example skills; extract from analysis result
+                        youtube_links = get_youtube_links(skills)
+                        st.divider()
+                        st.text("Additional Courses:")
+                        for link in youtube_links:
+                            st.video(link)
                     else:
                         st.warning("No text found in the uploaded PDFs.")
                 except Exception as e:
                     st.error(f"An error occurred during processing: {e}")
-
-            # Additional Courses
-            st.divider()
-            st.text("Additional Courses:")
-            st.video('https://www.youtube.com/watch?v=JxgmHe2NyeY&t')
-            st.divider()
-            st.video('https://www.youtube.com/watch?v=5NQjLBuNL0I')
-            st.divider()
-
-    if pdf_docs:
-        st.session_state.pdf_docs = pdf_docs
 
 if __name__ == "__main__":
     main()
