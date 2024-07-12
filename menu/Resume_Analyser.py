@@ -117,7 +117,6 @@ def main():
 
 
     
-        st.link_button('LinkedIn', "https://www.linkedin.com/in/surajsanap01")
     if pdf_docs:
         st.session_state.pdf_docs = pdf_docs
 
