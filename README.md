@@ -1,4 +1,4 @@
-# 🎓🤖College.ai
+# College.ai
 
 Welcome to College.ai ! It  is a versatile project that harnesses the power of Google-gemini to provide a range of features. The application includes functionalities such as exploring ChatGPT-4 features, training/uploading PDFs, resume analysis, and more.🎓🤖
 
