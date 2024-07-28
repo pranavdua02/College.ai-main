@@ -18,7 +18,7 @@ from menu.Resume_Analyser import main as resume_analyser_page
 from menu.User import main as user_page
 from menu.Contest_Calendar import main as contest_calendar
 from menu.Projects import main as projects_page
-from menu.job_tracker import main as job_tracker
+from menu.Job_Tracker import main as job_tracker
 
 # Initialize session state for theme
 if "current_theme" not in st.session_state:
