@@ -25,3 +25,4 @@ streamlit_chat
 streamlit-on-Hover-tabs
 httpx-oauth
 firebase-admin
+streamlit-authenticator
