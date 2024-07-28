@@ -84,10 +84,7 @@ def user_input(user_question):
         st.error(f"An error occurred: {e}")
 
 def main():
-    # Load animation from JSON
-    
-
-    
+    # Load animation from JSON 
     st.write("<h1><center>Resume Analyser</center></h1>", unsafe_allow_html=True)
     st.write("")
     try:
