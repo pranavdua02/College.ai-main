@@ -130,6 +130,10 @@ def main():
 
         if pdf_docs:
             st.session_state.pdf_docs = pdf_docs
+        if st.button("Logout"):
+            st.session_state['is_logged'] = False
+            del st.session_state['user']
+            st.rerun()
     else:
         st.markdown("<h3 style='text-align: center; color: red;'>You are not Logged In</h3>", unsafe_allow_html=True)
 if __name__ == "__main__":
