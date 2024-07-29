@@ -84,10 +84,7 @@ def user_input(user_question):
         st.error(f"An error occurred: {e}")
 
 def main():
-    # Load animation from JSON
-    
-
-    
+    # Load animation from JSON 
     st.write("<h1><center>Resume Analyser</center></h1>", unsafe_allow_html=True)
     st.write("")
     try:
@@ -96,38 +93,44 @@ def main():
         st_lottie(animation, 1, True, True, "high", 200, -200)
     except FileNotFoundError:
         st.warning("Animation file not found.")
-    if 'pdf_docs' not in st.session_state:
-        st.session_state.pdf_docs = None
+    
+    if 'is_logged' not in st.session_state:
+        st.session_state['is_logged'] = False
 
-    if 'output_text' not in st.session_state:
-        st.session_state.output_text = ""
+    if st.session_state['is_logged']: 
+        if 'pdf_docs' not in st.session_state:
+            st.session_state.pdf_docs = None
 
-    pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True)
+        if 'output_text' not in st.session_state:
+            st.session_state.output_text = ""
 
-    if st.button("Process"):
+        pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True)
+
+        if st.button("Process"):
+            if pdf_docs:
+                with st.spinner("Analysing..."):
+                    try:
+                        raw_text = get_pdf_text(pdf_docs)
+                        if raw_text:
+                            text_chunks = get_text_chunks(raw_text)
+                            get_vector_store(text_chunks)
+                            user_input(raw_text)
+                        else:
+                            st.warning("No text found in the uploaded PDFs.")
+                    except Exception as e:
+                        st.error(f"An error occurred during processing: {e}")
+
+                # Additional Courses
+                st.divider()
+                st.text("Additional Courses:")
+                st.video('https://www.youtube.com/watch?v=JxgmHe2NyeY&t')
+                st.divider()
+                st.video('https://www.youtube.com/watch?v=5NQjLBuNL0I')
+                st.divider()
+
         if pdf_docs:
-            with st.spinner("Analysing..."):
-                try:
-                    raw_text = get_pdf_text(pdf_docs)
-                    if raw_text:
-                        text_chunks = get_text_chunks(raw_text)
-                        get_vector_store(text_chunks)
-                        user_input(raw_text)
-                    else:
-                        st.warning("No text found in the uploaded PDFs.")
-                except Exception as e:
-                    st.error(f"An error occurred during processing: {e}")
-
-            # Additional Courses
-            st.divider()
-            st.text("Additional Courses:")
-            st.video('https://www.youtube.com/watch?v=JxgmHe2NyeY&t')
-            st.divider()
-            st.video('https://www.youtube.com/watch?v=5NQjLBuNL0I')
-            st.divider()
-
-    if pdf_docs:
-        st.session_state.pdf_docs = pdf_docs
-
+            st.session_state.pdf_docs = pdf_docs
+    else:
+        st.markdown("<h3 style='text-align: center; color: red;'>You are not Logged In</h3>", unsafe_allow_html=True)
 if __name__ == "__main__":
     main()
